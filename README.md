@@ -42,14 +42,14 @@ but effective encryption system (such as an **XOR** or **symmetrical algorithm**
 
 ## Plan to add later: 
 
-- [x] File transfer - Enable users to send files (images, documents,
+- [ ] File transfer - Enable users to send files (images, documents,
     etc.).
 
-- [x] User status - Online, away, busy, etc.
+- [ ] User status - Online, away, busy, etc.
 
-- [x] User mentions - Implement a system for mentioning other users with @.
+- [ ] User mentions - Implement a system for mentioning other users with @.
 
-- [x] Message encryption - Implement simple encryption for private
+- [ ] Message encryption - Implement simple encryption for private
     messages
 
 ### FR :
