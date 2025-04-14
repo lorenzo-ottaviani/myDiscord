@@ -42,14 +42,14 @@ but effective encryption system (such as an **XOR** or **symmetrical algorithm**
 
 ## Plan to add later: 
 
-- [] File transfer - Enable users to send files (images, documents,
+- [x] File transfer - Enable users to send files (images, documents,
     etc.).
 
-- [] User status - Online, away, busy, etc.
+- [x] User status - Online, away, busy, etc.
 
-- [] User mentions - Implement a system for mentioning other users with @.
+- [x] User mentions - Implement a system for mentioning other users with @.
 
-- [] Message encryption - Implement simple encryption for private
+- [x] Message encryption - Implement simple encryption for private
     messages
 
 ### FR :
@@ -90,10 +90,10 @@ qu\'ils soient **publics** ou **privés**. Et un simple **bouton de déconnexion
 
 ## A ajouter ultérieurement : 
 
--[] Transfert de fichiers - Permettre aux utilisateurs d\'envoyer des fichiers (images, documents, etc.).
+- [ ] Transfert de fichiers - Permettre aux utilisateurs d\'envoyer des fichiers (images, documents, etc.).
 
--[] Statut de l\'utilisateur - En ligne, absent, occupé, etc.
+- [ ] Statut de l\'utilisateur - En ligne, absent, occupé, etc.
 
--[] Mentions d\'utilisateurs - Mettre en place un système permettant de mentionner d\'autres utilisateurs avec @.
+- [ ] Mentions d\'utilisateurs - Mettre en place un système permettant de mentionner d\'autres utilisateurs avec @.
 
--[] Cryptage des messages - Mise en place d\'un cryptage simple pour les messages privés.
+- [ ] Cryptage des messages - Mise en place d\'un cryptage simple pour les messages privés.
