@@ -90,10 +90,10 @@ qu\'ils soient **publics** ou **privés**. Et un simple **bouton de déconnexion
 
 ## A ajouter ultérieurement : 
 
-- [] Transfert de fichiers - Permettre aux utilisateurs d\'envoyer des fichiers (images, documents, etc.).
+-[] Transfert de fichiers - Permettre aux utilisateurs d\'envoyer des fichiers (images, documents, etc.).
 
-- [] Statut de l\'utilisateur - En ligne, absent, occupé, etc.
+-[] Statut de l\'utilisateur - En ligne, absent, occupé, etc.
 
-- [] Mentions d\'utilisateurs - Mettre en place un système permettant de mentionner d\'autres utilisateurs avec @.
+-[] Mentions d\'utilisateurs - Mettre en place un système permettant de mentionner d\'autres utilisateurs avec @.
 
-- [] Cryptage des messages - Mise en place d\'un cryptage simple pour les messages privés.
+-[] Cryptage des messages - Mise en place d\'un cryptage simple pour les messages privés.
