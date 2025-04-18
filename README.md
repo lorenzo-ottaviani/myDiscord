@@ -27,15 +27,13 @@ The password must be chosen with care - **complex, unique** and hidden from view
 Once registered, the user lands in the main channel, ready to chat.
 Users are able to navigate freely between channels, both **public** and **private**. And a simple **logout button** can take the user to the home page.
 
-🎭 There is **a role management system - member, moderator, administrator -** with each type of user knowing their rights to
-**create a channel**, **delete one**, or **ban** an undesirable one.
-
+🎭 There is **a role management system - member, moderator, administrator -** with each type of user knowing their rights to **create a channel**, **delete one**, or **ban** an undesirable one.
+ensuite
 🧵 So that users can talk at the same time, the server relies on **threads.** Each connection should open a fluid, autonomous thread of execution.
 
 🔌 The application uses **sockets;** tunnels **linking the server to the client**. The server, always listening on its port, waits for users to connect, and sends or receives messages.
 
-🗃 The application must use a relational database called **myDiscord.sql** and use **PostgreSQL** to manage users, activity, authorizations, and carefully guard each message. The database must be more than a logbook: it needs to embody **memory**, **logic** and
-**order** in the chaos of discussions.
+🗃 The application must use a relational database called **myDiscord.sql** and use **PostgreSQL** to manage users, activity, authorizations, and carefully guard each message. The database must be more than a logbook: it needs to embody **memory**, **logic** and **order** in the chaos of discussions.
 
 🔒 In private channels, certain messages must remain secret. A simple
 but effective encryption system (such as an **XOR** or **symmetrical algorithm**) must ensure that only authorized eyes can read the message.
@@ -60,8 +58,7 @@ but effective encryption system (such as an **XOR** or **symmetrical algorithm**
 
 ## Caractéristiques de l\'application :
 
--   chaque fois qu\'un utilisateur se connecte, il trouve **l\'historique des messages** et connaît **l\'auteur** et **l\'heure exacte** de chaque
-    message
+-   chaque fois qu\'un utilisateur se connecte, il trouve **l\'historique des messages** et connaît **l\'auteur** et **l\'heure exacte** de chaque message
 
 -   les utilisateurs peuvent **créer des canaux** comme ils le souhaitent
 
