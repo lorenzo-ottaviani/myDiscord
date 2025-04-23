@@ -1,3 +1,4 @@
+/* Header files */
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netdb.h>
@@ -5,7 +6,7 @@
 #include<stdio.h>
 #include<string.h>
 
-
+/* Main Function and Variable Declarations */
 int main()
 {
  int sockfd;
@@ -21,6 +22,7 @@ int main()
  servaddr.sin_addr.s_addr=inet_addr("127.0.0.1");
  connect(sockfd,(struct sockaddr *)&servaddr,sizeof(servaddr));
  
+ /* Communication Loop */
  while(1){
  printf("Your Message: ");
  fgets(sendline,100,stdin);
