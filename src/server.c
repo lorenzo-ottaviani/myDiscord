@@ -90,5 +90,4 @@ bzero(sendline1, 100) sets each byte in sendline1 to zero, ensuring it’s an em
 
  /* Closing the Connection */
  close(comm_fd);
- /* Once the loop stops (which here it doesn't, since it is an infinite loop), close(comm_fd) will close the client connection.*/
 }
