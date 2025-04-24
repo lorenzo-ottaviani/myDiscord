@@ -54,9 +54,15 @@ activate(GtkApplication *app, gpointer user_data)
 
     /* Create a top-level grid for full layout */
     GtkWidget *grid = gtk_grid_new();
-    gtk_grid_set_row_spacing(GTK_GRID(grid), 5);
-    gtk_grid_set_column_spacing(GTK_GRID(grid), 5);
+    gtk_grid_set_row_spacing(GTK_GRID(grid), 10);
+    gtk_grid_set_column_spacing(GTK_GRID(grid), 10);
     gtk_window_set_child(GTK_WINDOW(app_widgets->window), grid);
+
+    // Add a 10-pixel margin on all sides:
+    gtk_widget_set_margin_top(grid, 10);
+    gtk_widget_set_margin_bottom(grid, 10);
+    gtk_widget_set_margin_start(grid, 10);
+    gtk_widget_set_margin_end(grid, 10);
 
     /* ==== Top Row: Header with Channel Name, User Info, Language Toggle and Logout Button ==== */
 
