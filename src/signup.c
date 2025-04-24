@@ -30,8 +30,7 @@ static void update_ui_texts(AppWidgets *app) {
     }
 
     // Create markup for the title (bigger and bolder)
-    char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>",
-                                                   trans->register_title);
+    char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>", trans->register_title);
     gtk_label_set_markup(GTK_LABEL(app->register_title_label), markup_title);
     g_free(markup_title);
 

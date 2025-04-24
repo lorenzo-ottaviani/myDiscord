@@ -20,6 +20,7 @@ const char *username_placeholder;
 const char *email_placeholder;
 const char *password_placeholder;
 const char *login_button;
+const char *logout_button;
 const char *invalid_message;
 const char *create_account_msg;
 const char *return_msg;

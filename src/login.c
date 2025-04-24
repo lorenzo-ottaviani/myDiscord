@@ -41,8 +41,7 @@ static void update_ui_texts(AppWidgets *app) {
 }
 
 /* Callback to destroy the dialog when the user responds */
-static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data)
-{
+static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data){
     gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
