@@ -19,6 +19,17 @@ typedef struct {
     Language current_language;
 } AppWidgets;
 
+/* CSS styling function */
+static void apply_css(void) {
+    GtkCssProvider *provider = gtk_css_provider_new();
+    const gchar *css_file = "myDiscord.css";
+
+    gtk_css_provider_load_from_path(provider, css_file);
+    
+    gtk_style_context_add_provider_for_display(gdk_display_get_default(), GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+    g_object_unref(provider);
+}
+
 /* Function to update all UI texts based on the selected language */
 static void update_ui_texts(AppWidgets *app) {
     Translations *trans;
@@ -80,7 +91,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
                                                    GTK_MESSAGE_ERROR,
                                                    GTK_BUTTONS_CLOSE,
                                                    "%s",
-                                                   trans->invalid_message);
+                                                   trans->invalid_msg);
         gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
         g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
         gtk_window_present(GTK_WINDOW(dialog));
@@ -116,6 +127,8 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     AppWidgets *app_widgets = malloc(sizeof(AppWidgets));
     /* Default language set to English */
     app_widgets->current_language = LANG_EN;
+
+    apply_css();
 
     app_widgets->window = gtk_application_window_new(app_inst);
     gtk_window_set_title(GTK_WINDOW(app_widgets->window), "MyDiscord");

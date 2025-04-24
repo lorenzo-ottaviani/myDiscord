@@ -8,21 +8,22 @@ typedef struct {
     Language current_language;
 
     /* UI elements */
+    GtkWidget *main_channel_title;
+    GtkWidget *header_box;      // Contains the large channel name and user info
+    GtkWidget *channel_list;    // Container for channel items (left column)
     GtkWidget *message_list;    // Container for messages inside the scrollable chat area
     GtkWidget *user_list;       // Container for user info
     GtkWidget *entry;           // Text input for message
     GtkWidget *send_button;     // Send button
-    GtkWidget *logout_button;   // Logout button    
-
-    /* New widgets */
-    GtkWidget *header_box;      // Contains the large channel name and user info
-    GtkWidget *channel_list;    // Container for channel items (left column)
+    GtkWidget *logout_button;   // Logout button  
+    GtkWidget *user_info_label; // Label for showing username with status
 } AppWidgets;
 
 /* Function prototypes */
 static void activate(GtkApplication *app, gpointer user_data);
 static void update_ui_texts(AppWidgets *app);
 static void on_language_changed(GtkComboBoxText *combo, gpointer user_data);
+static void on_status_changed(GtkComboBoxText *combo, gpointer user_data);
 static void on_logout_button_clicked(GtkButton *button, gpointer user_data);
 
 /* CSS styling function */
@@ -73,12 +74,22 @@ activate(GtkApplication *app, gpointer user_data)
     gtk_label_set_markup(GTK_LABEL(channel_name_label), "<span size='xx-large'>Main Channel</span>");
     gtk_box_append(GTK_BOX(app_widgets->header_box), channel_name_label);
 
-    // Bold username and status:
-    GtkWidget *user_info_label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(user_info_label), "<b>MyUsername123 (Online)</b>");
-    gtk_widget_set_hexpand(user_info_label, TRUE);
-    gtk_box_append(GTK_BOX(app_widgets->header_box), user_info_label);
-    
+    // Bold username with status.
+    // Instead of a local variable, we save the pointer inside AppWidgets so we can update it later.
+    app_widgets->user_info_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(app_widgets->user_info_label), "<b>MyUsername123</b>");
+    gtk_widget_set_hexpand(app_widgets->user_info_label, TRUE);
+    gtk_box_append(GTK_BOX(app_widgets->header_box), app_widgets->user_info_label);
+
+    // Status selector:
+    GtkWidget *status_combo = gtk_combo_box_text_new();
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(status_combo), "Online");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(status_combo), "Away");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(status_combo), "Offline");
+    gtk_combo_box_set_active(GTK_COMBO_BOX(status_combo), 0);
+    g_signal_connect(status_combo, "changed", G_CALLBACK(on_status_changed), app_widgets);
+    gtk_box_append(GTK_BOX(app_widgets->header_box), status_combo);
+  
     // Language selector:
     GtkWidget *lang_combo = gtk_combo_box_text_new();
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "EN");
@@ -217,6 +228,24 @@ on_language_changed(GtkComboBoxText *combo, gpointer user_data)
         update_ui_texts(app);
         g_free(lang);
     }
+}
+
+static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
+    AppWidgets *app = (AppWidgets *)user_data;
+    char *status = gtk_combo_box_text_get_active_text(combo);
+        if (status) {
+        // Extract the current username from the label.
+        // In this simple case, we assume the username is fixed.
+        const char *username = "MyUsername123";
+
+            // Create a new markup string combining the username with the new status.
+            // You could add translations here if needed.
+            char markup[256];
+            snprintf(markup, sizeof(markup), "<b>%s (%s)</b>", username, status);
+            gtk_label_set_markup(GTK_LABEL(app->user_info_label), markup);
+            
+            g_free(status);
+        }
 }
 
 static void
