@@ -5,6 +5,10 @@
 #include "dictionaries.h"
 #include "controller.h"
 
+GtkWidget* create_signup_page() {
+    // Create and return the signup page widget.
+}
+
 /* Callback to destroy the dialog when the user responds */
 static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
     gtk_window_destroy(GTK_WINDOW(dialog));
@@ -34,12 +38,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
         // Go back to login screen or continue with saving to server.
     } else {
         /* Create a modal message dialog with the invalid_message string */
-        GtkWidget *dialog = gtk_message_dialog_new(parent_window,
-                                                   GTK_DIALOG_MODAL,
-                                                   GTK_MESSAGE_ERROR,
-                                                   GTK_BUTTONS_CLOSE,
-                                                   "%s",
-                                                   trans->invalid_msg);
+        GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
         gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
         g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
         gtk_window_present(GTK_WINDOW(dialog));
@@ -48,27 +47,13 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
 
 /* Callback for when the return button (cancel) is clicked */
 static void on_return_button_clicked(GtkButton *button, gpointer user_data) {
+    SignupWidgets *app = (SignupWidgets *)user_data;
     /* Implement the action to return or cancel registration.
        For example, you might destroy the registration window and open the login window again. */
     g_print("Return button clicked, going back to the login screen...\n");
+    // Transistion to login page
+    gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "login");
 }
-
-// /* Callback for language combo box changed */
-// static void on_language_changed(GtkComboBoxText *combo, gpointer user_data) {
-//     SignupWidgets *app = (SignupWidgets *)user_data;
-    
-//     /* gtk_combo_box_text_get_active_text() returns a newly allocated string */
-//     gchar *lang = gtk_combo_box_text_get_active_text(combo);
-//     if (lang) {
-//         if (strcmp(lang, "EN") == 0)
-//             app->current_language = LANG_EN;
-//         else
-//             app->current_language = LANG_FR;
-//         g_free(lang);
-//     }
-    
-//     update_signup_ui_texts(app);
-// }
 
 /* Build the UI */
 static void activate(GtkApplication *app_inst, gpointer user_data) {
@@ -101,7 +86,7 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "EN");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "FR");
     gtk_combo_box_set_active(GTK_COMBO_BOX(lang_combo), 0);
-    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_language_changed), widgets);
+    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_signup_language_changed), widgets);
     gtk_box_append(GTK_BOX(lang_box), lang_combo);
 
     /* --- Section 1: Title --- */
@@ -109,9 +94,7 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_box_append(GTK_BOX(vbox), title_box);
     
     widgets->register_title_label = gtk_label_new(NULL);
-    // Set the initial title markup: bold and large.
-    char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>",
-                                                   translations_en.register_title);
+    char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>", translations_en.register_title);
     gtk_label_set_markup(GTK_LABEL(widgets->register_title_label), markup_title);
     g_free(markup_title);
     gtk_widget_set_halign(widgets->register_title_label, GTK_ALIGN_CENTER);
@@ -174,14 +157,22 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_window_present(GTK_WINDOW(widgets->window));
 }
 
-int main(int argc, char **argv) {
-    GtkApplication *app;
-    int status;
+// int main(int argc, char **argv) {
 
-    app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
-    g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-    status = g_application_run(G_APPLICATION(app), argc, argv);
-    g_object_unref(app);
-
-    return status;
-}
+//     GtkApplication *app;
+//     int status;
+    
+//     /* Create a new GtkApplication */
+//     app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
+    
+//     /* Pass the app_widgets as user_data so it is accessible in activate */
+//     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+    
+//     /* Run the application */
+//     status = g_application_run(G_APPLICATION(app), argc, argv);
+    
+//     /* Cleanup */
+//     g_object_unref(app);
+    
+//     return status;
+// }

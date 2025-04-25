@@ -5,35 +5,32 @@
 #include "dictionaries.h"
 #include "controller.h"
 
+GtkWidget* create_login_page() {
+    // Create and return the login page widget.
+}
+
 /* Callback to destroy the dialog when the user responds */
-static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data){
+static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
     gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
-    LoginWidgets *loginWidget = (LoginWidgets *)user_data;
-    GtkWindow *parent_window = GTK_WINDOW(loginWidget->window);
+    LoginWidgets *app = (LoginWidgets *)user_data;
+    GtkWindow *parent_window = GTK_WINDOW(app->window);
     
     /* Retrieve text using gtk_editable_get_text in GTK4 */
-    const char *email = gtk_editable_get_text(GTK_EDITABLE(loginWidget->email_entry));
-    const char *password = gtk_editable_get_text(GTK_EDITABLE(loginWidget->password_entry));
+    const char *email = gtk_editable_get_text(GTK_EDITABLE(app->email_entry));
+    const char *password = gtk_editable_get_text(GTK_EDITABLE(app->password_entry));
 
-    Translations *trans = (loginWidget->current_language == LANG_EN) ? &translations_en : &translations_fr;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
-    if (g_strcmp0(email, "user@example.com") == 0 &&
-        g_strcmp0(password, "password123") == 0) {
+    if (g_strcmp0(email, "user@example.com") == 0 && g_strcmp0(password, "password123") == 0) {
         g_print("Login successful!\n");
-        // Proceed to chat application main page
+        // Transition to chat page
+        gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "chat");
     } else {
-        /* Create a modal message dialog.
-         * Note: We use "%s" as format string to avoid the format-security warning.
-         */
-        GtkWidget *dialog = gtk_message_dialog_new(parent_window,
-                                                   GTK_DIALOG_MODAL,
-                                                   GTK_MESSAGE_ERROR,
-                                                   GTK_BUTTONS_CLOSE,
-                                                   "%s",
-                                                   trans->invalid_msg);
+        /* Create a modal message dialog. */
+        GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
         gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
         g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
         gtk_window_present(GTK_WINDOW(dialog));
@@ -41,13 +38,16 @@ static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
 }
 
 static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
+    LoginWidgets *app = (LoginWidgets *)user_data;
     g_print("Register button clicked!\n");
-    // Open registration window; implementation as needed.
+    // Transistion to registration page
+    gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "signup");
 }
 
 /* Build the UI */
 static void activate(GtkApplication *app_inst, gpointer user_data) {
     LoginWidgets *login_widgets = malloc(sizeof(LoginWidgets));
+    
     /* Default language set to English */
     login_widgets->current_language = LANG_EN;
 
@@ -75,7 +75,7 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "EN");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "FR");
     gtk_combo_box_set_active(GTK_COMBO_BOX(lang_combo), 0);
-    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_language_changed), login_widgets);
+    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_login_language_changed), login_widgets);
     gtk_box_append(GTK_BOX(lang_box), lang_combo);
 
     /* --- Section 1: Title --- */
@@ -132,15 +132,23 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_window_present(GTK_WINDOW(login_widgets->window));
 }
 
-int main(int argc, char **argv) {
-    GtkApplication *loginWidget;
-    int status;
+// int main(int argc, char **argv) {
 
-    loginWidget = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
-    g_signal_connect(loginWidget, "activate", G_CALLBACK(activate), NULL);
-    status = g_application_run(G_APPLICATION(loginWidget), argc, argv);
-    g_object_unref(loginWidget);
-
-    return status;
-}
+//     GtkApplication *app;
+//     int status;
+    
+//     /* Create a new GtkApplication */
+//     app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
+    
+//     /* Pass the app_widgets as user_data so it is accessible in activate */
+//     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+    
+//     /* Run the application */
+//     status = g_application_run(G_APPLICATION(app), argc, argv);
+    
+//     /* Cleanup */
+//     g_object_unref(app);
+    
+//     return status;
+// }
 

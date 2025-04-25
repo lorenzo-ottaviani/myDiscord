@@ -4,47 +4,13 @@
 #include "dictionaries.h"
 #include "controller.h"
 
-/* Function to update all UI texts based on the selected language */
-static void update_ui_texts(AppWidgets *app) {
-    Translations *trans;
-
-    if (app->current_language == LANG_EN) {
-        trans = &translations_en;
-    } else {
-        trans = &translations_fr;
-    }
-
-
-    gtk_label_set_text(GTK_LABEL(app->channel_list_title), trans->channel_list_title);
-    gtk_label_set_text(GTK_LABEL(app->user_list_title), trans->users_list_title);
-
-    gtk_label_set_text(GTK_LABEL(app->online_status), trans->online_status);
-    gtk_label_set_text(GTK_LABEL(app->offline_status), trans->offline_status);
-    gtk_label_set_text(GTK_LABEL(app->away_status), trans->away_status);
-
-    gtk_entry_set_placeholder_text(GTK_ENTRY(app->message_entry), trans->message_placeholder);
-    
-    gtk_button_set_label(GTK_BUTTON(app->logout_button), trans->login_button);
-    gtk_button_set_label(GTK_BUTTON(app->send_button), trans->send_button);
-
-}
-
-/* Callback for language combo box changed */
-static void on_language_changed(GtkComboBoxText *combo, gpointer user_data) {
-    AppWidgets *app = (AppWidgets *)user_data;
-    const char *lang = gtk_combo_box_text_get_active_text(combo);
-    
-    if (strcmp(lang, "EN") == 0)
-        app->current_language = LANG_EN;
-    else
-        app->current_language = LANG_FR;
-    
-    update_ui_texts(app);
+GtkWidget* create_chat_page() {
+    // Create and return the chat page widget.
 }
 
 static void on_send_button_clicked(GtkButton *button, gpointer user_data) {
     g_print("Message sent!\n");
-    // send message to server
+    // encrypt and send message to server
     // display message in chat window
 }
 
@@ -54,20 +20,35 @@ static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user
 }
 
 static void on_logout_button_clicked(GtkButton *button, gpointer user_data) {
-    g_print("Logout button clicked!\n");
+    ChatWidgets *app = (ChatWidgets *)user_data;
+    g_print("Logout button clicked! going back to the login screen...\n");
     // impliment logout functions; signout
-    // transistion to logout screen
+    // Transistion to login page
+    gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "login");
 }
 
-/* Function prototypes */
-static void on_language_changed(GtkComboBoxText *combo, gpointer user_data);
-static void on_status_changed(GtkComboBoxText *combo, gpointer user_data);
+static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
+    ChatWidgets *app = (ChatWidgets *)user_data;
+    char *status = gtk_combo_box_text_get_active_text(combo);
+        if (status) {
+        // Extract the current username from the label.
+        // In this simple case, we assume the username is fixed.
+        const char *username = "MyUsername123";
 
+            // Create a new markup string combining the username with the new status.
+            // You could add translations here if needed.
+            char markup[256];
+            snprintf(markup, sizeof(markup), "<b>%s (%s)</b>", username, status);
+            gtk_label_set_markup(GTK_LABEL(app->user_info_label), markup);
+            
+            g_free(status);
+        }
+}
 
 
 static void activate(GtkApplication *app, gpointer user_data) {
 
-    AppWidgets *app_widgets = malloc(sizeof(AppWidgets));
+    ChatWidgets *app_widgets = malloc(sizeof(ChatWidgets));
     // AppWidgets *app_widgets = (AppWidgets *)user_data; (old code to delete after testing)
 
     /* Default language set to English */
@@ -125,7 +106,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "EN");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "FR");
     gtk_combo_box_set_active(GTK_COMBO_BOX(lang_combo), 0);
-    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_language_changed), app_widgets);
+    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_chat_language_changed), app_widgets);
     gtk_box_append(GTK_BOX(app_widgets->header_box), lang_combo);
 
     // Logout Button:
@@ -238,75 +219,22 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_grid_attach(GTK_GRID(grid), user_frame, 8, 1, 2, 1);
 }
 
-static void
-update_ui_texts(AppWidgets *app)
-{
-    Translations *trans = NULL;
-    if (app->current_language == LANG_EN) {
-        trans = &translations_en;
-    } else {
-        trans = &translations_fr;
-    }
-    /* Update UI elements with translated strings from trans */
-}
+// int main(int argc, char **argv) {
 
-static void
-on_language_changed(GtkComboBoxText *combo, gpointer user_data)
-{
-    AppWidgets *app = (AppWidgets *)user_data;
-    char *lang = gtk_combo_box_text_get_active_text(combo);
-    if (lang) {
-        app->current_language = (strcmp(lang, "EN") == 0) ? LANG_EN : LANG_FR;
-        update_ui_texts(app);
-        g_free(lang);
-    }
-}
-
-static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
-    AppWidgets *app = (AppWidgets *)user_data;
-    char *status = gtk_combo_box_text_get_active_text(combo);
-        if (status) {
-        // Extract the current username from the label.
-        // In this simple case, we assume the username is fixed.
-        const char *username = "MyUsername123";
-
-            // Create a new markup string combining the username with the new status.
-            // You could add translations here if needed.
-            char markup[256];
-            snprintf(markup, sizeof(markup), "<b>%s (%s)</b>", username, status);
-            gtk_label_set_markup(GTK_LABEL(app->user_info_label), markup);
-            
-            g_free(status);
-        }
-}
-
-static void
-// on_exit_button_clicked(GtkButton *button, gpointer user_data)
-on_logout_button_clicked(GtkButton *button, gpointer user_data)
-{
-    AppWidgets *app = (AppWidgets *)user_data;
-    gtk_window_close(GTK_WINDOW(app->window));
-}
-
-int main(int argc, char **argv) {
-
-    GtkApplication *app;
-    int status;
+//     GtkApplication *app;
+//     int status;
     
-    /* Create an instance of the AppWidgets and initialize as needed */
-    AppWidgets app_widgets = {0};
+//     /* Create a new GtkApplication */
+//     app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
     
-    /* Create a new GtkApplication */
-    app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
+//     /* Pass the app_widgets as user_data so it is accessible in activate */
+//     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     
-    /* Pass the app_widgets as user_data so it is accessible in activate */
-    g_signal_connect(app, "activate", G_CALLBACK(activate), &app_widgets);
+//     /* Run the application */
+//     status = g_application_run(G_APPLICATION(app), argc, argv);
     
-    /* Run the application */
-    status = g_application_run(G_APPLICATION(app), argc, argv);
+//     /* Cleanup */
+//     g_object_unref(app);
     
-    /* Cleanup */
-    g_object_unref(app);
-    
-    return status;
-}
+//     return status;
+// }
