@@ -1,4 +1,3 @@
-/* dictionaries.c */
 #include "dictionaries.h"
 
 /* English (default) translations */
@@ -17,6 +16,7 @@ Translations translations_en = {
 .username_placeholder = "Enter a user name",
 .email_placeholder = "Enter your email",
 .password_placeholder = "Enter your password",
+.message_placeholder = "Enter your message",
 
 .channel_list_title = "Channel list",
 .users_list_title = "Users list",
@@ -47,6 +47,7 @@ Translations translations_fr = {
 .username_placeholder = "Entrer un nom d'utilisateur",
 .email_placeholder = "Entrez votre email",
 .password_placeholder = "Entrez votre mot de passe",
+.message_placeholder = "Entrez votre message",
 
 .channel_list_title = "Liste des canaux",
 .users_list_title = "Liste des utilisateurs",

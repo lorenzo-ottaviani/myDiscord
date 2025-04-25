@@ -1,53 +1,83 @@
 #include <gtk/gtk.h>
 #include <string.h>
+#include "chat.h"
 #include "dictionaries.h"
+#include "controller.h"
 
-/* Structure to hold our UI widgets */
-typedef struct {
-    GtkWidget *window;
-    Language current_language;
+/* Function to update all UI texts based on the selected language */
+static void update_ui_texts(AppWidgets *app) {
+    Translations *trans;
 
-    /* UI elements */
-    GtkWidget *main_channel_title;
-    GtkWidget *header_box;      // Contains the large channel name and user info
-    GtkWidget *channel_list;    // Container for channel items (left column)
-    GtkWidget *message_list;    // Container for messages inside the scrollable chat area
-    GtkWidget *user_list;       // Container for user info
-    GtkWidget *entry;           // Text input for message
-    GtkWidget *send_button;     // Send button
-    GtkWidget *logout_button;   // Logout button  
-    GtkWidget *user_info_label; // Label for showing username with status
-} AppWidgets;
+    if (app->current_language == LANG_EN) {
+        trans = &translations_en;
+    } else {
+        trans = &translations_fr;
+    }
 
-/* Function prototypes */
-static void activate(GtkApplication *app, gpointer user_data);
-static void update_ui_texts(AppWidgets *app);
-static void on_language_changed(GtkComboBoxText *combo, gpointer user_data);
-static void on_status_changed(GtkComboBoxText *combo, gpointer user_data);
-static void on_logout_button_clicked(GtkButton *button, gpointer user_data);
 
-/* CSS styling function */
-static void apply_css(void) {
-    GtkCssProvider *provider = gtk_css_provider_new();
-    const gchar *css_file = "myDiscord.css";
+    gtk_label_set_text(GTK_LABEL(app->channel_list_title), trans->channel_list_title);
+    gtk_label_set_text(GTK_LABEL(app->user_list_title), trans->users_list_title);
 
-    gtk_css_provider_load_from_path(provider, css_file);
+    gtk_label_set_text(GTK_LABEL(app->online_status), trans->online_status);
+    gtk_label_set_text(GTK_LABEL(app->offline_status), trans->offline_status);
+    gtk_label_set_text(GTK_LABEL(app->away_status), trans->away_status);
+
+    gtk_entry_set_placeholder_text(GTK_ENTRY(app->message_entry), trans->message_placeholder);
     
-    gtk_style_context_add_provider_for_display(gdk_display_get_default(), GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
-    g_object_unref(provider);
+    gtk_button_set_label(GTK_BUTTON(app->logout_button), trans->login_button);
+    gtk_button_set_label(GTK_BUTTON(app->send_button), trans->send_button);
+
 }
 
-static void
-activate(GtkApplication *app, gpointer user_data)
-{
-    AppWidgets *app_widgets = (AppWidgets *)user_data;
+/* Callback for language combo box changed */
+static void on_language_changed(GtkComboBoxText *combo, gpointer user_data) {
+    AppWidgets *app = (AppWidgets *)user_data;
+    const char *lang = gtk_combo_box_text_get_active_text(combo);
+    
+    if (strcmp(lang, "EN") == 0)
+        app->current_language = LANG_EN;
+    else
+        app->current_language = LANG_FR;
+    
+    update_ui_texts(app);
+}
+
+static void on_send_button_clicked(GtkButton *button, gpointer user_data) {
+    g_print("Message sent!\n");
+    // send message to server
+    // display message in chat window
+}
+
+/* Callback to destroy the dialog when the user responds */
+static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
+    gtk_window_destroy(GTK_WINDOW(dialog));
+}
+
+static void on_logout_button_clicked(GtkButton *button, gpointer user_data) {
+    g_print("Logout button clicked!\n");
+    // impliment logout functions; signout
+    // transistion to logout screen
+}
+
+/* Function prototypes */
+static void on_language_changed(GtkComboBoxText *combo, gpointer user_data);
+static void on_status_changed(GtkComboBoxText *combo, gpointer user_data);
+
+
+
+static void activate(GtkApplication *app, gpointer user_data) {
+
+    AppWidgets *app_widgets = malloc(sizeof(AppWidgets));
+    // AppWidgets *app_widgets = (AppWidgets *)user_data; (old code to delete after testing)
+
+    /* Default language set to English */
+    app_widgets->current_language = LANG_EN;
 
     /* Apply CSS for styling */
     apply_css();
 
     /* Create the main window */
     app_widgets->window = gtk_application_window_new(app);
-    app_widgets->current_language = LANG_EN;
     gtk_window_set_title(GTK_WINDOW(app_widgets->window), "MyDiscord");
     gtk_window_set_default_size(GTK_WINDOW(app_widgets->window), 1000, 700);
 
@@ -169,9 +199,11 @@ activate(GtkApplication *app, gpointer user_data)
     // Create the input area (text entry and send button) for the chat area:
     GtkWidget *chat_input_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     // Text entry:
-    app_widgets->entry = gtk_entry_new();
-    gtk_widget_set_hexpand(app_widgets->entry, TRUE);
-    gtk_box_append(GTK_BOX(chat_input_box), app_widgets->entry);
+    app_widgets->message_entry = gtk_entry_new();
+    gtk_entry_set_placeholder_text(GTK_ENTRY(app_widgets->message_entry), translations_en.message_placeholder);
+    gtk_widget_set_hexpand(app_widgets->message_entry, TRUE);
+    gtk_box_append(GTK_BOX(chat_input_box), app_widgets->message_entry);
+    
     // Send button:
     app_widgets->send_button = gtk_button_new_with_label("Send");
     gtk_box_append(GTK_BOX(chat_input_box), app_widgets->send_button);
