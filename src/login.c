@@ -5,7 +5,11 @@
 #include "dictionaries.h"
 #include "controller.h"
 
-
+// check password & username function
+    // collect user data & create json
+    // send to db (db with compare - function in server)
+    // receive response    
+    
 /* Callback to destroy the dialog when the user responds */
 static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
     gtk_window_destroy(GTK_WINDOW(dialog));
@@ -23,6 +27,7 @@ static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
     
     if (g_strcmp0(email, "user@example.com") == 0 && g_strcmp0(password, "password123") == 0) {
         g_print("Login successful!\n");
+        // get user data from database
         // Transition to chat page
         gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "chat");
     } else {
@@ -46,11 +51,15 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
 * The "stack" parameter is a pointer to the GtkStack that holds
 * all pages stored in the LoginWidgets struct for callbacks.
 */
-GtkWidget* create_login_page(GtkWidget *stack) {
+
+GtkWidget* create_login_page(GtkWidget *stack, GtkWidget *window) {
     LoginWidgets *app = malloc(sizeof(LoginWidgets));
     if (!app) {
         g_error("Failed to allocate LoginWidgets");
         }
+
+    // assign the main window pointer
+    app->window = window;
     /* Default language set to English */
     app->current_language = LANG_EN;
     /* Save the pointer to the main stack */
@@ -58,12 +67,12 @@ GtkWidget* create_login_page(GtkWidget *stack) {
 
     /* Create a top-level vertical box (vbox) to hold sections */
     GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 40);
+    /* Set appropriate margins... */
     gtk_widget_set_margin_top(vbox, 20);
     gtk_widget_set_margin_bottom(vbox, 20);
     gtk_widget_set_margin_start(vbox, 20);
     gtk_widget_set_margin_end(vbox, 20);
-    gtk_window_set_child(GTK_WINDOW(app->window), vbox);
-
+   
     /* --- Language Toggle Section --- */
     GtkWidget *lang_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
     gtk_widget_set_halign(lang_box, GTK_ALIGN_END);
@@ -124,8 +133,10 @@ GtkWidget* create_login_page(GtkWidget *stack) {
     app->register_button = gtk_button_new_with_label(translations_en.register_button);
     gtk_widget_set_size_request(app->register_button, 150, -1);
     gtk_widget_set_halign(app->register_button, GTK_ALIGN_CENTER);
-    g_signal_connect(app->register_button, "clicked", G_CALLBACK(on_register_button_clicked), NULL);
+    g_signal_connect(app->register_button, "clicked", G_CALLBACK(on_register_button_clicked), app);
     gtk_box_append(GTK_BOX(reg_box), app->register_button);
 
     gtk_window_present(GTK_WINDOW(app->window));
+
+    return vbox;
 }

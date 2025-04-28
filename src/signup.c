@@ -57,13 +57,15 @@ static void on_return_button_clicked(GtkButton *button, gpointer user_data) {
 * The "stack" parameter is a pointer to the GtkStack that holds
 * all pages. We store it into the LoginWidgets struct for callbacks.
 */
-GtkWidget* create_signup_page(GtkWidget *stack) {
+GtkWidget* create_signup_page(GtkWidget *stack, GtkWidget *window) {
 
     SignupWidgets *app = malloc(sizeof(SignupWidgets));
     if (!app) {
         g_error("Failed to allocate SignupWidgets");
     }
-    
+
+    // assign the main window pointer
+    app->window = window;
     /* Default language set to English */
     app->current_language = LANG_EN;
     /* Save the pointer to the main stack */
@@ -75,7 +77,9 @@ GtkWidget* create_signup_page(GtkWidget *stack) {
     gtk_widget_set_margin_bottom(vbox, 20);
     gtk_widget_set_margin_start(vbox, 20);
     gtk_widget_set_margin_end(vbox, 20);
-    gtk_window_set_child(GTK_WINDOW(app->window), vbox);
+    
+    // Set vbox as the child of the window.
+    // gtk_window_set_child(GTK_WINDOW(app->window), vbox);
 
     /* --- Language Toggle Section --- */
     GtkWidget *lang_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
@@ -155,4 +159,6 @@ GtkWidget* create_signup_page(GtkWidget *stack) {
     gtk_box_append(GTK_BOX(cancel_box), app->return_button);
 
     gtk_window_present(GTK_WINDOW(app->window));
+
+    return vbox;
 }

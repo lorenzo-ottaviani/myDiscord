@@ -42,13 +42,15 @@ static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
         }
 }
 
-GtkWidget* create_chat_page(GtkWidget *stack) {
+GtkWidget* create_chat_page(GtkWidget *stack, GtkWidget *window) {
 
     ChatWidgets *app = malloc(sizeof(ChatWidgets));
     if (!app) {
         g_error("Failed to allocate memory for ChatWidgets");
     }
 
+    // assign the main window pointer
+    app->window = window;
     /* Default language set to English */
     app->current_language = LANG_EN;
     /* Save the pointer to the main stack */
@@ -209,4 +211,6 @@ GtkWidget* create_chat_page(GtkWidget *stack) {
 
     // Attach right column (column 9-10, row 1)
     gtk_grid_attach(GTK_GRID(grid), user_frame, 8, 1, 2, 1);
+
+    return grid;
 }
