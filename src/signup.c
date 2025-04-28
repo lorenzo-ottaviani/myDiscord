@@ -16,7 +16,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     SignupWidgets *app = (SignupWidgets *)user_data;
     GtkWindow *parent_window = GTK_WINDOW(app->window);
     
-    /* Retrieve text using gtk_editable_get_text (works also for GTK4) */
+    /* Retrieve text using gtk_editable_get_text */
     const char *name = gtk_editable_get_text(GTK_EDITABLE(app->name_entry));
     const char *surname = gtk_editable_get_text(GTK_EDITABLE(app->surname_entry));
     const char *username = gtk_editable_get_text(GTK_EDITABLE(app->username_entry));
@@ -77,9 +77,6 @@ GtkWidget* create_signup_page(GtkWidget *stack, GtkWidget *window) {
     gtk_widget_set_margin_bottom(vbox, 20);
     gtk_widget_set_margin_start(vbox, 20);
     gtk_widget_set_margin_end(vbox, 20);
-    
-    // Set vbox as the child of the window.
-    // gtk_window_set_child(GTK_WINDOW(app->window), vbox);
 
     /* --- Language Toggle Section --- */
     GtkWidget *lang_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
@@ -114,28 +111,38 @@ GtkWidget* create_signup_page(GtkWidget *stack, GtkWidget *window) {
 
     app->name_entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->name_entry), translations_en.name_placeholder);
-    gtk_widget_set_size_request(app->name_entry, 300, -1);
+    gtk_widget_set_size_request(app->name_entry, 350, -1);
+    gtk_widget_set_hexpand(app->name_entry, FALSE);
+    gtk_widget_set_halign(app->name_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(reg_box), app->name_entry);
 
     app->surname_entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->surname_entry), translations_en.surname_placeholder);
-    gtk_widget_set_size_request(app->surname_entry, 300, -1);
+    gtk_widget_set_size_request(app->surname_entry, 350, -1);
+    gtk_widget_set_hexpand(app->surname_entry, FALSE);
+    gtk_widget_set_halign(app->surname_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(reg_box), app->surname_entry);
 
     app->username_entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->username_entry), translations_en.username_placeholder);
-    gtk_widget_set_size_request(app->username_entry, 300, -1);
+    gtk_widget_set_size_request(app->username_entry, 350, -1);
+    gtk_widget_set_hexpand(app->username_entry, FALSE);
+    gtk_widget_set_halign(app->username_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(reg_box), app->username_entry);
     
     app->email_entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->email_entry), translations_en.email_placeholder);
-    gtk_widget_set_size_request(app->email_entry, 300, -1);
+    gtk_widget_set_size_request(app->email_entry, 350, -1);
+    gtk_widget_set_hexpand(app->email_entry, FALSE);
+    gtk_widget_set_halign(app->email_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(reg_box), app->email_entry);
     
     app->password_entry = gtk_entry_new();
     gtk_entry_set_visibility(GTK_ENTRY(app->password_entry), FALSE);
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->password_entry), translations_en.password_placeholder);
-    gtk_widget_set_size_request(app->password_entry, 300, -1);
+    gtk_widget_set_size_request(app->password_entry, 350, -1);
+    gtk_widget_set_hexpand(app->password_entry, FALSE);
+    gtk_widget_set_halign(app->password_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(reg_box), app->password_entry);
 
     app->register_button = gtk_button_new_with_label(translations_en.register_button);

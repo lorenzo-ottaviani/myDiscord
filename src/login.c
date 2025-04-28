@@ -107,13 +107,17 @@ GtkWidget* create_login_page(GtkWidget *stack, GtkWidget *window) {
     
     app->email_entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->email_entry), translations_en.email_placeholder);
-    gtk_widget_set_size_request(app->email_entry, 300, -1);
+    gtk_widget_set_size_request(app->email_entry, 350, -1);
+    gtk_widget_set_hexpand(app->email_entry, FALSE);
+    gtk_widget_set_halign(app->email_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(login_box), app->email_entry);
     
     app->password_entry = gtk_entry_new();
     gtk_entry_set_visibility(GTK_ENTRY(app->password_entry), FALSE);
     gtk_entry_set_placeholder_text(GTK_ENTRY(app->password_entry), translations_en.password_placeholder);
-    gtk_widget_set_size_request(app->password_entry, 300, -1);
+    gtk_widget_set_size_request(app->password_entry, 350, -1);
+    gtk_widget_set_hexpand(app->password_entry, FALSE);
+    gtk_widget_set_halign(app->password_entry, GTK_ALIGN_CENTER);
     gtk_box_append(GTK_BOX(login_box), app->password_entry);
 
     app->login_button = gtk_button_new_with_label(translations_en.login_button);
