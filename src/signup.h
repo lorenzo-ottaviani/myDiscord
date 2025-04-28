@@ -26,6 +26,6 @@ typedef struct {
 } SignupWidgets;
 
 /* Create and return the signup page widget */
-GtkWidget *create_signup_page(void);
+GtkWidget *create_signup_page(GtkWidget *stack);
 
 #endif /* SIGNUP_H */

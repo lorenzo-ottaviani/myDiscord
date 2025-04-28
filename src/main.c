@@ -6,10 +6,13 @@
 #include "chat.h"
 
 static void activate(GtkApplication *app_inst, gpointer user_data) {
+    // Apply CSS before creating widgets
+    apply_css();
+        
     // Create the main window.
     GtkWidget *window = gtk_application_window_new(app_inst);
     gtk_window_set_title(GTK_WINDOW(window), "MyDiscord");
-    gtk_window_set_default_size(GTK_WINDOW(window), 400, 500);
+    gtk_window_set_default_size(GTK_WINDOW(window), 1000, 700);
     
     // Create a GtkStack that will hold multiple pages.
     GtkWidget *stack = gtk_stack_new();
@@ -17,9 +20,9 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_widget_set_vexpand(stack, TRUE);
     
     // Create the pages (as widgets): login page, signup/register page, chat page.
-    GtkWidget *login_page = create_login_page();
-    GtkWidget *signup_page = create_signup_page();
-    GtkWidget *chat_page = create_chat_page();
+    GtkWidget *login_page = create_login_page(stack);
+    GtkWidget *signup_page = create_signup_page(stack);
+    GtkWidget *chat_page = create_chat_page(stack);
     
     // Add each page to the stack with a unique name.
     gtk_stack_add_named(GTK_STACK(stack), login_page, "login");

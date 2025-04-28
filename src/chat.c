@@ -4,9 +4,6 @@
 #include "dictionaries.h"
 #include "controller.h"
 
-GtkWidget* create_chat_page() {
-    // Create and return the chat page widget.
-}
 
 static void on_send_button_clicked(GtkButton *button, gpointer user_data) {
     g_print("Message sent!\n");
@@ -45,28 +42,23 @@ static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
         }
 }
 
+GtkWidget* create_chat_page(GtkWidget *stack) {
 
-static void activate(GtkApplication *app, gpointer user_data) {
-
-    ChatWidgets *app_widgets = malloc(sizeof(ChatWidgets));
-    // AppWidgets *app_widgets = (AppWidgets *)user_data; (old code to delete after testing)
+    ChatWidgets *app = malloc(sizeof(ChatWidgets));
+    if (!app) {
+        g_error("Failed to allocate memory for ChatWidgets");
+    }
 
     /* Default language set to English */
-    app_widgets->current_language = LANG_EN;
-
-    /* Apply CSS for styling */
-    apply_css();
-
-    /* Create the main window */
-    app_widgets->window = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(app_widgets->window), "MyDiscord");
-    gtk_window_set_default_size(GTK_WINDOW(app_widgets->window), 1000, 700);
+    app->current_language = LANG_EN;
+    /* Save the pointer to the main stack */
+    app->main_stack = stack;
 
     /* Create a top-level grid for full layout */
     GtkWidget *grid = gtk_grid_new();
     gtk_grid_set_row_spacing(GTK_GRID(grid), 10);
     gtk_grid_set_column_spacing(GTK_GRID(grid), 10);
-    gtk_window_set_child(GTK_WINDOW(app_widgets->window), grid);
+    gtk_window_set_child(GTK_WINDOW(app->window), grid);
 
     // Add a 10-pixel margin on all sides:
     gtk_widget_set_margin_top(grid, 10);
@@ -77,20 +69,20 @@ static void activate(GtkApplication *app, gpointer user_data) {
     /* ==== Top Row: Header with Channel Name, User Info, Language Toggle and Logout Button ==== */
 
     // Create a header horizontal box that spans all columns.
-    app_widgets->header_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
-    gtk_widget_set_hexpand(app_widgets->header_box, TRUE);
+    app->header_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
+    gtk_widget_set_hexpand(app->header_box, TRUE);
     
     // Large Channel Name label:
     GtkWidget *channel_name_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(channel_name_label), "<span size='xx-large'>Main Channel</span>");
-    gtk_box_append(GTK_BOX(app_widgets->header_box), channel_name_label);
+    gtk_box_append(GTK_BOX(app->header_box), channel_name_label);
 
     // Bold username with status.
     // Instead of a local variable, we save the pointer inside AppWidgets so we can update it later.
-    app_widgets->user_info_label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(app_widgets->user_info_label), "<b>MyUsername123</b>");
-    gtk_widget_set_hexpand(app_widgets->user_info_label, TRUE);
-    gtk_box_append(GTK_BOX(app_widgets->header_box), app_widgets->user_info_label);
+    app->user_info_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(app->user_info_label), "<b>MyUsername123</b>");
+    gtk_widget_set_hexpand(app->user_info_label, TRUE);
+    gtk_box_append(GTK_BOX(app->header_box), app->user_info_label);
 
     // Status selector:
     GtkWidget *status_combo = gtk_combo_box_text_new();
@@ -98,26 +90,26 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(status_combo), "Away");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(status_combo), "Offline");
     gtk_combo_box_set_active(GTK_COMBO_BOX(status_combo), 0);
-    g_signal_connect(status_combo, "changed", G_CALLBACK(on_status_changed), app_widgets);
-    gtk_box_append(GTK_BOX(app_widgets->header_box), status_combo);
+    g_signal_connect(status_combo, "changed", G_CALLBACK(on_status_changed), app);
+    gtk_box_append(GTK_BOX(app->header_box), status_combo);
   
     // Language selector:
     GtkWidget *lang_combo = gtk_combo_box_text_new();
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "EN");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(lang_combo), "FR");
     gtk_combo_box_set_active(GTK_COMBO_BOX(lang_combo), 0);
-    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_chat_language_changed), app_widgets);
-    gtk_box_append(GTK_BOX(app_widgets->header_box), lang_combo);
+    g_signal_connect(lang_combo, "changed", G_CALLBACK(on_chat_language_changed), app);
+    gtk_box_append(GTK_BOX(app->header_box), lang_combo);
 
     // Logout Button:
     GtkWidget *logout_button = gtk_button_new_with_label(translations_en.logout_button);
-    g_signal_connect(logout_button, "clicked", G_CALLBACK(on_logout_button_clicked), app_widgets);
-    gtk_box_append(GTK_BOX(app_widgets->header_box), logout_button);
+    g_signal_connect(logout_button, "clicked", G_CALLBACK(on_logout_button_clicked), app);
+    gtk_box_append(GTK_BOX(app->header_box), logout_button);
 
-    gtk_window_present(GTK_WINDOW(app_widgets->window));
+    gtk_window_present(GTK_WINDOW(app->window));
     
     // Attach the header_box at grid row 0 spanning 10 columns.
-    gtk_grid_attach(GTK_GRID(grid), app_widgets->header_box, 0, 0, 10, 1);
+    gtk_grid_attach(GTK_GRID(grid), app->header_box, 0, 0, 10, 1);
 
     /* ==== Middle Area: 10 Columns in the Grid ==== */
     /* layout:
@@ -145,7 +137,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     GtkWidget *channel_frame = gtk_frame_new("Channels");
     gtk_frame_set_child(GTK_FRAME(channel_frame), channel_scrolled);
     // Save pointer for later use if needed
-    app_widgets->channel_list = channel_box;
+    app->channel_list = channel_box;
 
     // Attach left column 
     gtk_grid_attach(GTK_GRID(grid), channel_frame, 0, 1, 2, 2);
@@ -180,20 +172,20 @@ static void activate(GtkApplication *app, gpointer user_data) {
     // Create the input area (text entry and send button) for the chat area:
     GtkWidget *chat_input_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     // Text entry:
-    app_widgets->message_entry = gtk_entry_new();
-    gtk_entry_set_placeholder_text(GTK_ENTRY(app_widgets->message_entry), translations_en.message_placeholder);
-    gtk_widget_set_hexpand(app_widgets->message_entry, TRUE);
-    gtk_box_append(GTK_BOX(chat_input_box), app_widgets->message_entry);
+    app->message_entry = gtk_entry_new();
+    gtk_entry_set_placeholder_text(GTK_ENTRY(app->message_entry), translations_en.message_placeholder);
+    gtk_widget_set_hexpand(app->message_entry, TRUE);
+    gtk_box_append(GTK_BOX(chat_input_box), app->message_entry);
     
     // Send button:
-    app_widgets->send_button = gtk_button_new_with_label("Send");
-    gtk_box_append(GTK_BOX(chat_input_box), app_widgets->send_button);
+    app->send_button = gtk_button_new_with_label("Send");
+    gtk_box_append(GTK_BOX(chat_input_box), app->send_button);
 
     // Add the chat_input_box at the bottom of the chat_vbox & user vox 
     gtk_grid_attach(GTK_GRID(grid), chat_input_box, 2, 2, 8, 1); 
 
     // Save the pointer to the chat messages box if needed later:
-    app_widgets->message_list = chat_box;
+    app->message_list = chat_box;
 
     // Attach the chat_vbox to the grid in the middle columns
     gtk_grid_attach(GTK_GRID(grid), chat_vbox, 2, 1, 6, 1);
@@ -218,23 +210,3 @@ static void activate(GtkApplication *app, gpointer user_data) {
     // Attach right column (column 9-10, row 1)
     gtk_grid_attach(GTK_GRID(grid), user_frame, 8, 1, 2, 1);
 }
-
-// int main(int argc, char **argv) {
-
-//     GtkApplication *app;
-//     int status;
-    
-//     /* Create a new GtkApplication */
-//     app = gtk_application_new("com.github.leila-wilde.MyDiscord", 0);
-    
-//     /* Pass the app_widgets as user_data so it is accessible in activate */
-//     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-    
-//     /* Run the application */
-//     status = g_application_run(G_APPLICATION(app), argc, argv);
-    
-//     /* Cleanup */
-//     g_object_unref(app);
-    
-//     return status;
-// }

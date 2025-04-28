@@ -19,6 +19,6 @@ typedef struct {
 } LoginWidgets;
 
 /* Create and return the login page widget */
-GtkWidget *create_login_page(void);
+GtkWidget *create_login_page(GtkWidget *stack);
 
 #endif /* LOGIN_H */

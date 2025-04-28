@@ -29,6 +29,6 @@ typedef struct {
 } ChatWidgets;
 
 /* Create and return the chat page widget */
-GtkWidget *create_chat_page(void);
+GtkWidget *create_chat_page(GtkWidget *stack);
 
 #endif /* CHAT_H */
