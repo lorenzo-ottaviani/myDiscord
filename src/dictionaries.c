@@ -25,6 +25,7 @@ Translations translations_en = {
 .logout_button = "Logout",
 .register_button = "Register",
 .return_button = "Back",
+.send_button = "Send",
 
 .invalid_msg = "Invalid email or password.",
 .create_account_msg = "Create new account",
@@ -56,6 +57,7 @@ Translations translations_fr = {
 .logout_button = "Déconnexion",
 .register_button = "S'enregistrer",
 .return_button = "Retour",
+.send_button = "Envoyer",
 
 .invalid_msg = "Email ou mot de passe invalide.",
 .create_account_msg = "Créer un nouveau compte",

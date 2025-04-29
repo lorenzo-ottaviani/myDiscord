@@ -33,7 +33,6 @@ static void on_status_changed(GtkComboBoxText *combo, gpointer user_data) {
         const char *username = "MyUsername123";
 
             // Create a new markup string combining the username with the new status.
-            // You could add translations here if needed.
             char markup[256];
             snprintf(markup, sizeof(markup), "<b>%s (%s)</b>", username, status);
             gtk_label_set_markup(GTK_LABEL(app->user_info_label), markup);
@@ -60,7 +59,6 @@ GtkWidget* create_chat_page(GtkWidget *stack, GtkWidget *window) {
     GtkWidget *grid = gtk_grid_new();
     gtk_grid_set_row_spacing(GTK_GRID(grid), 10);
     gtk_grid_set_column_spacing(GTK_GRID(grid), 10);
-    gtk_window_set_child(GTK_WINDOW(app->window), grid);
 
     // Add a 10-pixel margin on all sides:
     gtk_widget_set_margin_top(grid, 10);
@@ -80,7 +78,7 @@ GtkWidget* create_chat_page(GtkWidget *stack, GtkWidget *window) {
     gtk_box_append(GTK_BOX(app->header_box), channel_name_label);
 
     // Bold username with status.
-    // Instead of a local variable, we save the pointer inside AppWidgets so we can update it later.
+    // Instead of a local variable, pointer saved inside AppWidgets so we can update it later.
     app->user_info_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(app->user_info_label), "<b>MyUsername123</b>");
     gtk_widget_set_hexpand(app->user_info_label, TRUE);

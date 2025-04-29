@@ -17,13 +17,11 @@ void apply_css(void) {
 
 void update_login_ui_texts(void *widget_struct) {
     LoginWidgets *app = (LoginWidgets *)widget_struct;
-    Translations *trans = (app->current_language == LANG_EN)
-                            ? &translations_en : &translations_fr;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
     if (app->login_title_label) {
         /* Create markup for the title (bigger and bolder) */
-        char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>",
-                                                       trans->login_title);
+        char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>", trans->login_title);
         gtk_label_set_markup(GTK_LABEL(app->login_title_label), markup_title);
         g_free(markup_title);
     }
@@ -40,13 +38,11 @@ void update_login_ui_texts(void *widget_struct) {
 
 void update_signup_ui_texts(void *widget_struct) {
     SignupWidgets *app = (SignupWidgets *)widget_struct;
-    Translations *trans = (app->current_language == LANG_EN)
-                            ? &translations_en : &translations_fr;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
     if (app->register_title_label) {
         /* Create markup for the title (bigger and bolder) */
-        char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>",
-                                                       trans->register_title);
+        char *markup_title = g_markup_printf_escaped("<span weight='bold' size='xx-large'>%s</span>", trans->register_title);
         gtk_label_set_markup(GTK_LABEL(app->register_title_label), markup_title);
         g_free(markup_title);
     }
@@ -68,8 +64,7 @@ void update_signup_ui_texts(void *widget_struct) {
 
 void update_chat_ui_texts(void *widget_struct) {
     ChatWidgets *app = (ChatWidgets *)widget_struct;
-    Translations *trans = (app->current_language == LANG_EN)
-                            ? &translations_en : &translations_fr;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
     if (app->main_channel_title_label) {
         /* Create markup for the title (bigger and bolder) */

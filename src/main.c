@@ -30,7 +30,7 @@ static void activate(GtkApplication *app_inst, gpointer user_data) {
     gtk_stack_add_named(GTK_STACK(stack), chat_page, "chat");
     
     // Add transition animations:
-    gtk_stack_set_transition_type(GTK_STACK(stack), GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT);
+    gtk_stack_set_transition_type(GTK_STACK(stack), GTK_STACK_TRANSITION_TYPE_ROTATE_LEFT);
     gtk_stack_set_transition_duration(GTK_STACK(stack), 300);
     
     // Set the stack as the child of the window.

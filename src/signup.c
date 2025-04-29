@@ -15,6 +15,7 @@ static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user
 static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     SignupWidgets *app = (SignupWidgets *)user_data;
     GtkWindow *parent_window = GTK_WINDOW(app->window);
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
     /* Retrieve text using gtk_editable_get_text */
     const char *name = gtk_editable_get_text(GTK_EDITABLE(app->name_entry));
@@ -23,10 +24,8 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     const char *email = gtk_editable_get_text(GTK_EDITABLE(app->email_entry));
     const char *password = gtk_editable_get_text(GTK_EDITABLE(app->password_entry));
 
-    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
-    
-    /* Sample validations (replace with actual validations):
-     * Here you would check whether each field is not empty, whether the username or email already exists,
+    /* Replace with actual validations:
+     * Here we will check whether each field is not empty, whether the username or email already exists,
      * or whether the password meets length requirements.
      */
     if (strlen(name) > 0 && strlen(surname) > 0 && strlen(username) > 0 &&
@@ -45,6 +44,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
 /* Callback for when the return button (cancel) is clicked */
 static void on_return_button_clicked(GtkButton *button, gpointer user_data) {
     SignupWidgets *app = (SignupWidgets *)user_data;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     /* Implement the action to return or cancel registration.
        For example, you might destroy the registration window and open the login window again. */
     g_print("Return button clicked, going back to the login screen...\n");
