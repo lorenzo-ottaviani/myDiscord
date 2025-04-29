@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\create_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\create_database.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/create_database.c",
+  "output": "CMakeFiles/server.dir/server/src/create_database.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\main.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\main.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/main.c",
+  "output": "CMakeFiles/server.dir/server/src/main.c.obj"
+}
+]
