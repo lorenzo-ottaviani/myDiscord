@@ -31,7 +31,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     if (strlen(name) > 0 && strlen(surname) > 0 && strlen(username) > 0 &&
         strlen(email) > 0 && strlen(password) > 0 /* && additional database checks here */) {
         g_print("Registration successful!\n");
-        // Go back to login screen or continue with saving to server.
+        // Go back to login screen or continue withGTK_IS_LABEL saving to server.
     } else {
         /* Create a modal message dialog with the invalid_message string */
         GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);

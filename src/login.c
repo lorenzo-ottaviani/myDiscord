@@ -22,29 +22,29 @@ static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
     gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "chat");
 }
 
-// static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
-//     LoginWidgets *app = (LoginWidgets *)user_data;
-//     GtkWindow *parent_window = GTK_WINDOW(app->window);
+static void on_login_button_clicked(GtkButton *button, gpointer user_data) {
+    LoginWidgets *app = (LoginWidgets *)user_data;
+    GtkWindow *parent_window = GTK_WINDOW(app->window);
     
-//     /* Retrieve text using gtk_editable_get_text in GTK4 */
-//     const char *email = gtk_editable_get_text(GTK_EDITABLE(app->email_entry));
-//     const char *password = gtk_editable_get_text(GTK_EDITABLE(app->password_entry));
+    /* Retrieve text using gtk_editable_get_text in GTK4 */
+    const char *email = gtk_editable_get_text(GTK_EDITABLE(app->email_entry));
+    const char *password = gtk_editable_get_text(GTK_EDITABLE(app->password_entry));
 
-//     Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
+    Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
     
-//     if (g_strcmp0(email, "user@example.com") == 0 && g_strcmp0(password, "password123") == 0) {
-//         g_print("Login successful!\n");
-//         // get user data from database
-//         // Transition to chat page
-//         gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "chat");
-//     } else {
-//         /* Create a modal message dialog. */
-//         GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
-//         gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
-//         g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
-//         gtk_window_present(GTK_WINDOW(dialog));
-//     }
-// }
+    if (g_strcmp0(email, "user@example.com") == 0 && g_strcmp0(password, "password123") == 0) {
+        g_print("Login successful!\n");
+        // get user data from database
+        // Transition to chat page
+        gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "chat");
+    } else {
+        /* Create a modal message dialog. */
+        GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
+        gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
+        g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
+        gtk_window_present(GTK_WINDOW(dialog));
+    }
+}
 
 static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     LoginWidgets *app = (LoginWidgets *)user_data;
