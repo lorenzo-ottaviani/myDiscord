@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <libpq-fe.h>
 #include "database_setup.h"
+#include "database_setting.h"
 
 int main() {
     // Initial connection to PostgreSQL
-    const char *conninfo = "user=postgres password=Nodercna6. host=localhost port=5432 dbname=postgres";
+    char conninfo[256];
+    sprintf(conninfo, "user=%s password=%s host=%s port=%d dbname=%s",
+            DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME);
     PGconn *conn = PQconnectdb(conninfo);
 
     // Check if the connection was successful

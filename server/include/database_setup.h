@@ -5,4 +5,4 @@
 
 PGconn* create_database(const char *dbname, PGconn *conn);
 
-#endif // DATABASE_SETUP_H
+#endif
