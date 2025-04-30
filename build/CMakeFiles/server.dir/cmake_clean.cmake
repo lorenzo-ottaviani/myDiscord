@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/server/src/create_database.c.obj.d"
   "CMakeFiles/server.dir/server/src/main.c.obj"
   "CMakeFiles/server.dir/server/src/main.c.obj.d"
+  "CMakeFiles/server.dir/server/src/signup_database.c.obj"
+  "CMakeFiles/server.dir/server/src/signup_database.c.obj.d"
   "libserver.dll.a"
   "server.exe"
   "server.exe.manifest"

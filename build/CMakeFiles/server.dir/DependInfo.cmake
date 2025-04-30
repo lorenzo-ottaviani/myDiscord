@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/create_database.c" "CMakeFiles/server.dir/server/src/create_database.c.obj" "gcc" "CMakeFiles/server.dir/server/src/create_database.c.obj.d"
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/main.c" "CMakeFiles/server.dir/server/src/main.c.obj" "gcc" "CMakeFiles/server.dir/server/src/main.c.obj.d"
+  "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/signup_database.c" "CMakeFiles/server.dir/server/src/signup_database.c.obj" "gcc" "CMakeFiles/server.dir/server/src/signup_database.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

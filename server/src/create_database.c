@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <libpq-fe.h>
 #include "database_setup.h"
+#include "database_setting.h"
 
 /**
  * Creates a new database if it doesn't exist.
@@ -29,7 +30,11 @@ PGconn* create_database(const char *dbname, PGconn *conn) {
 
     // Switch to the newly created database
     PQfinish(conn);
-    conn = PQconnectdb("user=postgres password=Nodercna6. host=localhost port=5432 dbname=mydiscord");
+    
+    char conninfo[256];
+    sprintf(conninfo, "user=%s password=%s host=%s port=%d dbname=%s",
+            DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME);
+    PGconn *conn = PQconnectdb(conninfo);
 
     if (PQstatus(conn) != CONNECTION_OK) {
         fprintf(stderr, "Connection to the newly created database failed: %s", PQerrorMessage(conn));

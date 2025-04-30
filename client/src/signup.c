@@ -34,6 +34,7 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
      */
     if (strlen(name) > 0 && strlen(surname) > 0 && strlen(username) > 0 &&
         strlen(email) > 0 && strlen(password) > 0 /* && additional database checks here */) {
+        signup_database(name, surname, username, email, password);  // Send to the database
         g_print("Registration successful!\n");
         // Go back to login screen or continue with saving to server.
     } else {
