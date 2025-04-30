@@ -1,0 +1,4 @@
+/home/nyxx/laPlatforme/myDiscord/myDiscord/build/CMakeFiles/client.dir
+/home/nyxx/laPlatforme/myDiscord/myDiscord/build/CMakeFiles/server.dir
+/home/nyxx/laPlatforme/myDiscord/myDiscord/build/CMakeFiles/edit_cache.dir
+/home/nyxx/laPlatforme/myDiscord/myDiscord/build/CMakeFiles/rebuild_cache.dir
