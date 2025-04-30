@@ -1,5 +1,33 @@
 {
     "files.associations": {
         "glib.h": "c"
-    }
+    },
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "MySQL local",
+            "database": "budget_buddy",
+            "username": "root",
+            "password": "HelloKitty!666",
+            "connectionTimeout": 30
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Local PG",
+            "database": "mydiscord",
+            "username": "postgres",
+            "password": "hellokitty666",
+            "connectionTimeout": 30
+        }
+    ]
 }
