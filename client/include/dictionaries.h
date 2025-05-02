@@ -36,6 +36,7 @@ const char *register_button;
 const char *return_button;
 
 const char *invalid_msg;
+const char *registration_failed_msg;
 const char *create_account_msg;
 const char *return_msg;
 

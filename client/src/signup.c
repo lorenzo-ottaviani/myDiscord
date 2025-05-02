@@ -1,15 +1,14 @@
 #include <gtk/gtk.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h> // for sleep/close()
 #include "signup.h"
 #include "dictionaries.h"
 #include "controller.h"
 
-
-/* Callback to destroy the dialog when the user responds */
-static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
-    gtk_window_destroy(GTK_WINDOW(dialog));
-}
+// Global variable for the socket file descriptor
+extern int sockfd;
 
 /* Callback for when the register button is clicked */
 static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
@@ -24,38 +23,67 @@ static void on_register_button_clicked(GtkButton *button, gpointer user_data) {
     const char *email = gtk_editable_get_text(GTK_EDITABLE(app->email_entry));
     const char *password = gtk_editable_get_text(GTK_EDITABLE(app->password_entry));
 
-    /* Replace with actual validations:
-     * Here we will check whether each field is not empty, whether the username or email already exists,
-     * or whether the password meets length requirements.
+    /* Here we check whether each field is not empty, whether the username or email already exists,
+     * and whether the password meets requirements.
      */
     if (strlen(name) > 0 && strlen(surname) > 0 && strlen(username) > 0 &&
-        strlen(email) > 0 && strlen(password) > 0 /* && additional database checks here */) {
-        g_print("Registration successful!\n");
-        // Go back to login screen or continue withGTK_IS_LABEL saving to server.
-    } else {
-        /* Create a modal message dialog with the invalid_message string */
-        GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
-        gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
-        g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
-        gtk_window_present(GTK_WINDOW(dialog));
+        strlen(email) > 0 && strlen(password) > 0) {
+
+            // Create the registration message
+            char message[500];
+            snprintf(message, sizeof(message), "REGISTER|%s|%s|%s|%s|%s", name, surname, username, email, password);
+
+            // Send the registration message to the server
+            if (send(sockfd, message, strlen(message), 0) < 0) {
+                perror("Send error");
+                return;
+        }
+            // wait for a response from the server
+            char response[500];
+            int bytes_received = recv(sockfd, response, sizeof(response) - 1, 0);
+            if (bytes_received > 0) {
+                response[bytes_received] = '\0'; // Null-terminate the response
+                if (strcmp(response, "SUCCESS") == 0) {
+                    g_print("Registration successful!\n");
+                    // Transition to the login screen
+                    gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "login");
+                } else {
+                /* Registration failure, create modal message dialog with the invalid_message string */
+                GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->registration_failed_msg);
+                gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
+                g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
+                gtk_window_present(GTK_WINDOW(dialog));
+                } 
+            } else {
+                perror("Receive error");
+            }
+        } else {
+            // Show error message for invalid input
+            GtkWidget *dialog = gtk_message_dialog_new(parent_window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", trans->invalid_msg);
+            gtk_window_set_transient_for(GTK_WINDOW(dialog), parent_window);
+            g_signal_connect(dialog, "response", G_CALLBACK(on_dialog_response), NULL);
+            gtk_window_present(GTK_WINDOW(dialog));
+        }
     }
-}
 
 /* Callback for when the return button (cancel) is clicked */
 static void on_return_button_clicked(GtkButton *button, gpointer user_data) {
     SignupWidgets *app = (SignupWidgets *)user_data;
     Translations *trans = (app->current_language == LANG_EN) ? &translations_en : &translations_fr;
-    /* Implement the action to return or cancel registration.
-       For example, you might destroy the registration window and open the login window again. */
+    // Cancel registration & transition back to login screen 
     g_print("Return button clicked, going back to the login screen...\n");
-    // Transistion to login page
     gtk_stack_set_visible_child_name(GTK_STACK(app->main_stack), "login");
+}
+
+/* Callback to destroy the dialog when the user responds */
+static void on_dialog_response(GtkDialog *dialog, int response_id, gpointer user_data) {
+    gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 /* Create the signup page widget.
 * The login page UI is built inside a vertical box.
 * The "stack" parameter is a pointer to the GtkStack that holds
-* all pages. We store it into the LoginWidgets struct for callbacks.
+* all pages. It is stored in the LoginWidgets struct for callbacks.
 */
 GtkWidget* create_signup_page(GtkWidget *stack, GtkWidget *window) {
 
