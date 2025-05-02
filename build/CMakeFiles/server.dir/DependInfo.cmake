@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nyxx/laPlatforme/myDiscord/myDiscord/server/src/create_database.c" "CMakeFiles/server.dir/server/src/create_database.c.o" "gcc" "CMakeFiles/server.dir/server/src/create_database.c.o.d"
   "/home/nyxx/laPlatforme/myDiscord/myDiscord/server/src/main.c" "CMakeFiles/server.dir/server/src/main.c.o" "gcc" "CMakeFiles/server.dir/server/src/main.c.o.d"
+  "/home/nyxx/laPlatforme/myDiscord/myDiscord/server/src/signup_database.c" "CMakeFiles/server.dir/server/src/signup_database.c.o" "gcc" "CMakeFiles/server.dir/server/src/signup_database.c.o.d"
   )
 
 # Targets to which this target links.

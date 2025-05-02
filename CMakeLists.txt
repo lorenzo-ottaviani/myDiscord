@@ -33,7 +33,7 @@ pkg_check_modules(GTK4 REQUIRED gtk4)
 include_directories(${GTK4_INCLUDE_DIRS})
 
 # === CSS ===
-file(COPY assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY assets/myDiscord.css DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # # === CJSON ===
 # pkg_check_modules(CJSON REQUIRED libcjson)

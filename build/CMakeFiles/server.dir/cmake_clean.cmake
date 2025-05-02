@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/server/src/create_database.c.o.d"
   "CMakeFiles/server.dir/server/src/main.c.o"
   "CMakeFiles/server.dir/server/src/main.c.o.d"
+  "CMakeFiles/server.dir/server/src/signup_database.c.o"
+  "CMakeFiles/server.dir/server/src/signup_database.c.o.d"
   "server"
   "server.pdb"
 )

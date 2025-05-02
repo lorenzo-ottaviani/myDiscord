@@ -337,6 +337,30 @@ server/src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/main.c.s
 .PHONY : server/src/main.c.s
 
+server/src/signup_database.o: server/src/signup_database.c.o
+.PHONY : server/src/signup_database.o
+
+# target to build an object file
+server/src/signup_database.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/signup_database.c.o
+.PHONY : server/src/signup_database.c.o
+
+server/src/signup_database.i: server/src/signup_database.c.i
+.PHONY : server/src/signup_database.i
+
+# target to preprocess a source file
+server/src/signup_database.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/signup_database.c.i
+.PHONY : server/src/signup_database.c.i
+
+server/src/signup_database.s: server/src/signup_database.c.s
+.PHONY : server/src/signup_database.s
+
+# target to generate assembly for a file
+server/src/signup_database.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/src/signup_database.c.s
+.PHONY : server/src/signup_database.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -371,6 +395,9 @@ help:
 	@echo "... server/src/main.o"
 	@echo "... server/src/main.i"
 	@echo "... server/src/main.s"
+	@echo "... server/src/signup_database.o"
+	@echo "... server/src/signup_database.i"
+	@echo "... server/src/signup_database.s"
 .PHONY : help
 
 

@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/server.dir/server/src/create_database.c.o CMakeFiles/server.dir/server/src/main.c.o -o server  -lpq 
+/usr/bin/cc -g CMakeFiles/server.dir/server/src/create_database.c.o CMakeFiles/server.dir/server/src/main.c.o CMakeFiles/server.dir/server/src/signup_database.c.o -o server  -lpq 
