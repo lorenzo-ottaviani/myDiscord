@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <libpq-fe.h>
-#include "database_setup.h"
+#include "create_database.h"
 #include "database_setting.h"
 
 /**
@@ -32,9 +32,9 @@ PGconn* create_database(const char *dbname, PGconn *conn) {
     PQfinish(conn);
     
     char conninfo[256];
-    sprintf(conninfo, "user=%s password=%s host=%s port=%d dbname=%s",
+    snprintf(conninfo,  sizeof(conninfo), "user=%s password=%s host=%s port=%d dbname=%s",
             DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME);
-    PGconn *conn = PQconnectdb(conninfo);
+    conn = PQconnectdb(conninfo);
 
     if (PQstatus(conn) != CONNECTION_OK) {
         fprintf(stderr, "Connection to the newly created database failed: %s", PQerrorMessage(conn));

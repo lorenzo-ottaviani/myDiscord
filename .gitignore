@@ -58,3 +58,6 @@ dkms.conf
 
 # Ignore .env files
 .env
+
+# Ignore database_setting header file
+server/include/database_setting.h

@@ -131,6 +131,30 @@ server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
+server/src/connect_database.obj: server/src/connect_database.c.obj
+.PHONY : server/src/connect_database.obj
+
+# target to build an object file
+server/src/connect_database.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/connect_database.c.obj
+.PHONY : server/src/connect_database.c.obj
+
+server/src/connect_database.i: server/src/connect_database.c.i
+.PHONY : server/src/connect_database.i
+
+# target to preprocess a source file
+server/src/connect_database.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/connect_database.c.i
+.PHONY : server/src/connect_database.c.i
+
+server/src/connect_database.s: server/src/connect_database.c.s
+.PHONY : server/src/connect_database.s
+
+# target to generate assembly for a file
+server/src/connect_database.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/connect_database.c.s
+.PHONY : server/src/connect_database.c.s
+
 server/src/create_database.obj: server/src/create_database.c.obj
 .PHONY : server/src/create_database.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... server
+	@echo ... server/src/connect_database.obj
+	@echo ... server/src/connect_database.i
+	@echo ... server/src/connect_database.s
 	@echo ... server/src/create_database.obj
 	@echo ... server/src/create_database.i
 	@echo ... server/src/create_database.s

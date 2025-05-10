@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/server.dir/server/src/connect_database.c.obj"
+  "CMakeFiles/server.dir/server/src/connect_database.c.obj.d"
   "CMakeFiles/server.dir/server/src/create_database.c.obj"
   "CMakeFiles/server.dir/server/src/create_database.c.obj.d"
   "CMakeFiles/server.dir/server/src/main.c.obj"

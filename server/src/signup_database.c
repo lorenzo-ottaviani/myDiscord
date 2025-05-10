@@ -1,18 +1,27 @@
 #include <stdio.h>
+#include <string.h>
 #include <libpq-fe.h>
-#include <bcrypt.h>
-#include "database_setup.h"
+#include <sodium.h>
+#include "signup_database.h"
 #include "database_setting.h"
 
 void signup_database(const char *name, const char *surname, const char *username, const char *email, const char *password) {
-    // Hash the password
-    char hashed_password[BCRYPT_HASHSIZE];
-    if (bcrypt_gensalt(12, hashed_password) != 0) {
-        fprintf(stderr, "Error generating salt for bcrypt\n");
+    // Initialize libsodium library
+    if (sodium_init() < 0) {
+        fprintf(stderr, "Échec de l'initialisation de libsodium\n");
         return;
     }
-    if (bcrypt_hashpw(password, hashed_password, hashed_password) != 0) {
-        fprintf(stderr, "Error hashing the password\n");
+
+    // Hash the password
+    char hashed_password[crypto_pwhash_STRBYTES];
+
+    if (crypto_pwhash_str(
+            hashed_password,
+            password,
+            strlen(password),
+            crypto_pwhash_OPSLIMIT_INTERACTIVE,
+            crypto_pwhash_MEMLIMIT_INTERACTIVE) != 0) {
+        fprintf(stderr, "Erreur de hachage du mot de passe\n");
         return;
     }
 
