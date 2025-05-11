@@ -10,12 +10,11 @@ typedef struct {
     GtkWidget *main_stack;
     GtkWidget *main_channel_title_label;
 
-    GtkWidget *header_box;      // Contains the large channel name/user info/toggle and logout on main page
-    GtkWidget *channel_list;    // Container for channel items (left column) of main page
-    GtkWidget *message_list;    // Container for messages inside the scrollable chat area on main page
-    GtkWidget *user_list;       // Container for user info
-
-    GtkWidget *user_info_label; // Label for showing username with status
+    GtkWidget *header_box;
+    GtkWidget *channel_list;
+    GtkWidget *message_list;
+    GtkWidget *user_list;
+    GtkWidget *user_info_label;
 
     GtkWidget *online_status;
     GtkWidget *offline_status;
@@ -29,6 +28,6 @@ typedef struct {
 } ChatWidgets;
 
 /* Create and return the chat page widget */
-GtkWidget *create_chat_page(void);
+GtkWidget *create_chat_page(GtkWidget *stack, GtkWidget *window);
 
 #endif /* CHAT_H */

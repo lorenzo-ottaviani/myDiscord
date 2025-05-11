@@ -25,8 +25,10 @@ Translations translations_en = {
 .logout_button = "Logout",
 .register_button = "Register",
 .return_button = "Back",
+.send_button = "Send",
 
 .invalid_msg = "Invalid email or password.",
+.registration_failed_msg = "Registration failed. Please try again.",
 .create_account_msg = "Create new account",
 .return_msg = "Return to login"
 
@@ -56,8 +58,10 @@ Translations translations_fr = {
 .logout_button = "Déconnexion",
 .register_button = "S'enregistrer",
 .return_button = "Retour",
+.send_button = "Envoyer",
 
 .invalid_msg = "Email ou mot de passe invalide.",
+.registration_failed_msg = "L'inscription a échoué. Veuillez réessayer.",
 .create_account_msg = "Créer un nouveau compte",
 .return_msg = "Retour à la connexion"
 };

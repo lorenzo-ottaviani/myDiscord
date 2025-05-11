@@ -18,8 +18,7 @@
 			"target_link_libraries",
 			"add_compile_options",
 			"add_definitions",
-			"include_directories",
-			"target_include_directories"
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -91,7 +90,7 @@
 				"parent" : 0
 			},
 			{
-				"command" : 6,
+				"command" : 5,
 				"file" : 0,
 				"line" : 68,
 				"parent" : 0
