@@ -30,19 +30,3 @@ char* xor_encryption(char *src)
     return crypte ;
 }
 
-
-int main()
-{
-    char lettres[] = "sais-tu danser la carioca ?";
-    char *crypto = xor_encryption(lettres) ;
-    int taille = strlen(lettres);
-
-    for (int j = 0 ; j < taille ; j++)
-    {
-        printf("%d : %x", crypto[j], crypto[j]);
-    }
-    printf("\n");
-    free(crypto);
-
-    return 0 ;
-}
