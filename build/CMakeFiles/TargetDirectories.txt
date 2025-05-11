@@ -1,3 +1,4 @@
+C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build/CMakeFiles/client.dir
 C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build/CMakeFiles/server.dir
 C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build/CMakeFiles/edit_cache.dir
 C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build/CMakeFiles/rebuild_cache.dir

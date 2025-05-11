@@ -1,0 +1,318 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "server.exe"
+		},
+		{
+			"path" : "server.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"target_link_libraries",
+			"add_compile_options",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 79,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 84,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 92,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 80,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu99   -mfpmath=sse -msse -msse2"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-finput-charset=UTF-8"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-fexec-charset=UTF-8"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 7,
+					"define" : "LIBDEFLATE_DLL"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "C:/Program Files/PostgreSQL/16/include"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "C:/msys64/ucrt64/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/gtk-4.0"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/pango-1.0"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/fribidi"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/harfbuzz"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/gdk-pixbuf-2.0"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/webp"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/cairo"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/freetype2"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/libpng16"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/pixman-1"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/graphene-1.0"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/lib/graphene-1.0/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/include/glib-2.0"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/msys64/ucrt64/lib/glib-2.0/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/include"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		}
+	],
+	"id" : "server::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LC:\\PROGRA~1\\POSTGR~1\\16\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LC:\\msys64\\ucrt64\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lpq",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-lsodium",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "server",
+	"nameOnDisk" : "server.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/connect_database.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/create_database.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/server_linux.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/server_windows.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "server/src/signup_database.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

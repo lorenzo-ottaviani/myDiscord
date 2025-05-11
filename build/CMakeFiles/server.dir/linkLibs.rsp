@@ -1,1 +1,1 @@
-  -LC:/PROGRA~1/POSTGR~1/16/lib  -LC:/msys64/ucrt64/lib  -lws2_32 -lpq "C:/Program Files/PostgreSQL/16/lib/libpq.lib" -lsodium -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+  -LC:/PROGRA~1/POSTGR~1/16/lib  -LC:/msys64/ucrt64/lib  -lws2_32 -lpq -lsodium -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

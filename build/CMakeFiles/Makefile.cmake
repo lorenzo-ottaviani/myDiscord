@@ -22,6 +22,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake"
   "C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake"
+  "C:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+  "C:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake"
+  "C:/msys64/mingw64/share/cmake/Modules/FindPkgConfig.cmake"
   "C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake"
   "C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
   "C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-C.cmake"
@@ -51,5 +54,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/client.dir/DependInfo.cmake"
   "CMakeFiles/server.dir/DependInfo.cmake"
   )

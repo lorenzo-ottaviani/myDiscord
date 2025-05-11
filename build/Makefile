@@ -119,6 +119,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
 # Target rules for targets named server
 
 # Build rule for target.
@@ -130,6 +143,150 @@ server: cmake_check_build_system
 server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
+
+client/src/chat.obj: client/src/chat.c.obj
+.PHONY : client/src/chat.obj
+
+# target to build an object file
+client/src/chat.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/chat.c.obj
+.PHONY : client/src/chat.c.obj
+
+client/src/chat.i: client/src/chat.c.i
+.PHONY : client/src/chat.i
+
+# target to preprocess a source file
+client/src/chat.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/chat.c.i
+.PHONY : client/src/chat.c.i
+
+client/src/chat.s: client/src/chat.c.s
+.PHONY : client/src/chat.s
+
+# target to generate assembly for a file
+client/src/chat.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/chat.c.s
+.PHONY : client/src/chat.c.s
+
+client/src/controller.obj: client/src/controller.c.obj
+.PHONY : client/src/controller.obj
+
+# target to build an object file
+client/src/controller.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/controller.c.obj
+.PHONY : client/src/controller.c.obj
+
+client/src/controller.i: client/src/controller.c.i
+.PHONY : client/src/controller.i
+
+# target to preprocess a source file
+client/src/controller.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/controller.c.i
+.PHONY : client/src/controller.c.i
+
+client/src/controller.s: client/src/controller.c.s
+.PHONY : client/src/controller.s
+
+# target to generate assembly for a file
+client/src/controller.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/controller.c.s
+.PHONY : client/src/controller.c.s
+
+client/src/dictionaries.obj: client/src/dictionaries.c.obj
+.PHONY : client/src/dictionaries.obj
+
+# target to build an object file
+client/src/dictionaries.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/dictionaries.c.obj
+.PHONY : client/src/dictionaries.c.obj
+
+client/src/dictionaries.i: client/src/dictionaries.c.i
+.PHONY : client/src/dictionaries.i
+
+# target to preprocess a source file
+client/src/dictionaries.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/dictionaries.c.i
+.PHONY : client/src/dictionaries.c.i
+
+client/src/dictionaries.s: client/src/dictionaries.c.s
+.PHONY : client/src/dictionaries.s
+
+# target to generate assembly for a file
+client/src/dictionaries.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/dictionaries.c.s
+.PHONY : client/src/dictionaries.c.s
+
+client/src/login.obj: client/src/login.c.obj
+.PHONY : client/src/login.obj
+
+# target to build an object file
+client/src/login.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/login.c.obj
+.PHONY : client/src/login.c.obj
+
+client/src/login.i: client/src/login.c.i
+.PHONY : client/src/login.i
+
+# target to preprocess a source file
+client/src/login.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/login.c.i
+.PHONY : client/src/login.c.i
+
+client/src/login.s: client/src/login.c.s
+.PHONY : client/src/login.s
+
+# target to generate assembly for a file
+client/src/login.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/login.c.s
+.PHONY : client/src/login.c.s
+
+client/src/main.obj: client/src/main.c.obj
+.PHONY : client/src/main.obj
+
+# target to build an object file
+client/src/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.obj
+.PHONY : client/src/main.c.obj
+
+client/src/main.i: client/src/main.c.i
+.PHONY : client/src/main.i
+
+# target to preprocess a source file
+client/src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.i
+.PHONY : client/src/main.c.i
+
+client/src/main.s: client/src/main.c.s
+.PHONY : client/src/main.s
+
+# target to generate assembly for a file
+client/src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/main.c.s
+.PHONY : client/src/main.c.s
+
+client/src/signup.obj: client/src/signup.c.obj
+.PHONY : client/src/signup.obj
+
+# target to build an object file
+client/src/signup.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/signup.c.obj
+.PHONY : client/src/signup.c.obj
+
+client/src/signup.i: client/src/signup.c.i
+.PHONY : client/src/signup.i
+
+# target to preprocess a source file
+client/src/signup.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/signup.c.i
+.PHONY : client/src/signup.c.i
+
+client/src/signup.s: client/src/signup.c.s
+.PHONY : client/src/signup.s
+
+# target to generate assembly for a file
+client/src/signup.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client/src/signup.c.s
+.PHONY : client/src/signup.c.s
 
 server/src/connect_database.obj: server/src/connect_database.c.obj
 .PHONY : server/src/connect_database.obj
@@ -203,6 +360,54 @@ server/src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/main.c.s
 .PHONY : server/src/main.c.s
 
+server/src/server_linux.obj: server/src/server_linux.c.obj
+.PHONY : server/src/server_linux.obj
+
+# target to build an object file
+server/src/server_linux.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_linux.c.obj
+.PHONY : server/src/server_linux.c.obj
+
+server/src/server_linux.i: server/src/server_linux.c.i
+.PHONY : server/src/server_linux.i
+
+# target to preprocess a source file
+server/src/server_linux.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_linux.c.i
+.PHONY : server/src/server_linux.c.i
+
+server/src/server_linux.s: server/src/server_linux.c.s
+.PHONY : server/src/server_linux.s
+
+# target to generate assembly for a file
+server/src/server_linux.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_linux.c.s
+.PHONY : server/src/server_linux.c.s
+
+server/src/server_windows.obj: server/src/server_windows.c.obj
+.PHONY : server/src/server_windows.obj
+
+# target to build an object file
+server/src/server_windows.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_windows.c.obj
+.PHONY : server/src/server_windows.c.obj
+
+server/src/server_windows.i: server/src/server_windows.c.i
+.PHONY : server/src/server_windows.i
+
+# target to preprocess a source file
+server/src/server_windows.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_windows.c.i
+.PHONY : server/src/server_windows.c.i
+
+server/src/server_windows.s: server/src/server_windows.c.s
+.PHONY : server/src/server_windows.s
+
+# target to generate assembly for a file
+server/src/server_windows.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/server/src/server_windows.c.s
+.PHONY : server/src/server_windows.c.s
+
 server/src/signup_database.obj: server/src/signup_database.c.obj
 .PHONY : server/src/signup_database.obj
 
@@ -235,7 +440,26 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... client
 	@echo ... server
+	@echo ... client/src/chat.obj
+	@echo ... client/src/chat.i
+	@echo ... client/src/chat.s
+	@echo ... client/src/controller.obj
+	@echo ... client/src/controller.i
+	@echo ... client/src/controller.s
+	@echo ... client/src/dictionaries.obj
+	@echo ... client/src/dictionaries.i
+	@echo ... client/src/dictionaries.s
+	@echo ... client/src/login.obj
+	@echo ... client/src/login.i
+	@echo ... client/src/login.s
+	@echo ... client/src/main.obj
+	@echo ... client/src/main.i
+	@echo ... client/src/main.s
+	@echo ... client/src/signup.obj
+	@echo ... client/src/signup.i
+	@echo ... client/src/signup.s
 	@echo ... server/src/connect_database.obj
 	@echo ... server/src/connect_database.i
 	@echo ... server/src/connect_database.s
@@ -245,6 +469,12 @@ help:
 	@echo ... server/src/main.obj
 	@echo ... server/src/main.i
 	@echo ... server/src/main.s
+	@echo ... server/src/server_linux.obj
+	@echo ... server/src/server_linux.i
+	@echo ... server/src/server_linux.s
+	@echo ... server/src/server_windows.obj
+	@echo ... server/src/server_windows.i
+	@echo ... server/src/server_windows.s
 	@echo ... server/src/signup_database.obj
 	@echo ... server/src/signup_database.i
 	@echo ... server/src/signup_database.s

@@ -119,11 +119,41 @@ CMakeFiles/server.dir/server/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/server.dir/server/src/main.c.s"
 	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\main.c" -o CMakeFiles\server.dir\server\src\main.c.s
 
+CMakeFiles/server.dir/server/src/server_linux.c.obj: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server/src/server_linux.c.obj: CMakeFiles/server.dir/includes_C.rsp
+CMakeFiles/server.dir/server/src/server_linux.c.obj: C:/Users/uraie/Documents/Cours\ et\ formations/B1\ Informatique/C/My\ Discord/server/src/server_linux.c
+CMakeFiles/server.dir/server/src/server_linux.c.obj: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/server.dir/server/src/server_linux.c.obj"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/server.dir/server/src/server_linux.c.obj -MF CMakeFiles\server.dir\server\src\server_linux.c.obj.d -o CMakeFiles\server.dir\server\src\server_linux.c.obj -c "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_linux.c"
+
+CMakeFiles/server.dir/server/src/server_linux.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/server.dir/server/src/server_linux.c.i"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_linux.c" > CMakeFiles\server.dir\server\src\server_linux.c.i
+
+CMakeFiles/server.dir/server/src/server_linux.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/server.dir/server/src/server_linux.c.s"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_linux.c" -o CMakeFiles\server.dir\server\src\server_linux.c.s
+
+CMakeFiles/server.dir/server/src/server_windows.c.obj: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server/src/server_windows.c.obj: CMakeFiles/server.dir/includes_C.rsp
+CMakeFiles/server.dir/server/src/server_windows.c.obj: C:/Users/uraie/Documents/Cours\ et\ formations/B1\ Informatique/C/My\ Discord/server/src/server_windows.c
+CMakeFiles/server.dir/server/src/server_windows.c.obj: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/server.dir/server/src/server_windows.c.obj"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/server.dir/server/src/server_windows.c.obj -MF CMakeFiles\server.dir\server\src\server_windows.c.obj.d -o CMakeFiles\server.dir\server\src\server_windows.c.obj -c "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_windows.c"
+
+CMakeFiles/server.dir/server/src/server_windows.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/server.dir/server/src/server_windows.c.i"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_windows.c" > CMakeFiles\server.dir\server\src\server_windows.c.i
+
+CMakeFiles/server.dir/server/src/server_windows.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/server.dir/server/src/server_windows.c.s"
+	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\server_windows.c" -o CMakeFiles\server.dir\server\src\server_windows.c.s
+
 CMakeFiles/server.dir/server/src/signup_database.c.obj: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server/src/signup_database.c.obj: CMakeFiles/server.dir/includes_C.rsp
 CMakeFiles/server.dir/server/src/signup_database.c.obj: C:/Users/uraie/Documents/Cours\ et\ formations/B1\ Informatique/C/My\ Discord/server/src/signup_database.c
 CMakeFiles/server.dir/server/src/signup_database.c.obj: CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/server.dir/server/src/signup_database.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/server.dir/server/src/signup_database.c.obj"
 	C:\msys64\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/server.dir/server/src/signup_database.c.obj -MF CMakeFiles\server.dir\server\src\signup_database.c.obj.d -o CMakeFiles\server.dir\server\src\signup_database.c.obj -c "C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\server\src\signup_database.c"
 
 CMakeFiles/server.dir/server/src/signup_database.c.i: cmake_force
@@ -139,6 +169,8 @@ server_OBJECTS = \
 "CMakeFiles/server.dir/server/src/connect_database.c.obj" \
 "CMakeFiles/server.dir/server/src/create_database.c.obj" \
 "CMakeFiles/server.dir/server/src/main.c.obj" \
+"CMakeFiles/server.dir/server/src/server_linux.c.obj" \
+"CMakeFiles/server.dir/server/src/server_windows.c.obj" \
 "CMakeFiles/server.dir/server/src/signup_database.c.obj"
 
 # External object files for target server
@@ -147,13 +179,14 @@ server_EXTERNAL_OBJECTS =
 server.exe: CMakeFiles/server.dir/server/src/connect_database.c.obj
 server.exe: CMakeFiles/server.dir/server/src/create_database.c.obj
 server.exe: CMakeFiles/server.dir/server/src/main.c.obj
+server.exe: CMakeFiles/server.dir/server/src/server_linux.c.obj
+server.exe: CMakeFiles/server.dir/server/src/server_windows.c.obj
 server.exe: CMakeFiles/server.dir/server/src/signup_database.c.obj
 server.exe: CMakeFiles/server.dir/build.make
-server.exe: C:/Program\ Files/PostgreSQL/16/lib/libpq.lib
 server.exe: CMakeFiles/server.dir/linkLibs.rsp
 server.exe: CMakeFiles/server.dir/objects1.rsp
 server.exe: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable server.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\uraie\Documents\Cours et formations\B1 Informatique\C\My Discord\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable server.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\server.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,25 +1,73 @@
 [
 {
   "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\connect_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\connect_database.c\"",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\chat.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\chat.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/chat.c",
+  "output": "CMakeFiles/client.dir/client/src/chat.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\controller.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\controller.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/controller.c",
+  "output": "CMakeFiles/client.dir/client/src/controller.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\dictionaries.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\dictionaries.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/dictionaries.c",
+  "output": "CMakeFiles/client.dir/client/src/dictionaries.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\login.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\login.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/login.c",
+  "output": "CMakeFiles/client.dir/client/src/login.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\main.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\main.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/main.c",
+  "output": "CMakeFiles/client.dir/client/src/main.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/client.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\client.dir\\client\\src\\signup.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\client\\src\\signup.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/client/src/signup.c",
+  "output": "CMakeFiles/client.dir/client/src/signup.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\connect_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\connect_database.c\"",
   "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/connect_database.c",
   "output": "CMakeFiles/server.dir/server/src/connect_database.c.obj"
 },
 {
   "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\create_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\create_database.c\"",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\create_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\create_database.c\"",
   "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/create_database.c",
   "output": "CMakeFiles/server.dir/server/src/create_database.c.obj"
 },
 {
   "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\main.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\main.c\"",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\main.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\main.c\"",
   "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/main.c",
   "output": "CMakeFiles/server.dir/server/src/main.c.obj"
 },
 {
   "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\signup_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\signup_database.c\"",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\server_linux.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\server_linux.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/server_linux.c",
+  "output": "CMakeFiles/server.dir/server/src/server_linux.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\server_windows.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\server_windows.c\"",
+  "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/server_windows.c",
+  "output": "CMakeFiles/server.dir/server/src/server_windows.c.obj"
+},
+{
+  "directory": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DLIBDEFLATE_DLL @CMakeFiles/server.dir/includes_C.rsp -g -std=gnu99   -mfpmath=sse -msse -msse2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o CMakeFiles\\server.dir\\server\\src\\signup_database.c.obj -c \"C:\\Users\\uraie\\Documents\\Cours et formations\\B1 Informatique\\C\\My Discord\\server\\src\\signup_database.c\"",
   "file": "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/signup_database.c",
   "output": "CMakeFiles/server.dir/server/src/signup_database.c.obj"
 }

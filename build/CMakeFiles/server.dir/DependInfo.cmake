@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/connect_database.c" "CMakeFiles/server.dir/server/src/connect_database.c.obj" "gcc" "CMakeFiles/server.dir/server/src/connect_database.c.obj.d"
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/create_database.c" "CMakeFiles/server.dir/server/src/create_database.c.obj" "gcc" "CMakeFiles/server.dir/server/src/create_database.c.obj.d"
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/main.c" "CMakeFiles/server.dir/server/src/main.c.obj" "gcc" "CMakeFiles/server.dir/server/src/main.c.obj.d"
+  "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/server_linux.c" "CMakeFiles/server.dir/server/src/server_linux.c.obj" "gcc" "CMakeFiles/server.dir/server/src/server_linux.c.obj.d"
+  "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/server_windows.c" "CMakeFiles/server.dir/server/src/server_windows.c.obj" "gcc" "CMakeFiles/server.dir/server/src/server_windows.c.obj.d"
   "C:/Users/uraie/Documents/Cours et formations/B1 Informatique/C/My Discord/server/src/signup_database.c" "CMakeFiles/server.dir/server/src/signup_database.c.obj" "gcc" "CMakeFiles/server.dir/server/src/signup_database.c.obj.d"
   )
 
